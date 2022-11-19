@@ -14,6 +14,7 @@ class News(Base):
     pub_time = Column(String)
     text = Column(String)
     short_description = Column(String)
+    is_main_news = Column(Boolean)
     is_outer_link = Column(Boolean)
     outer_link = Column(String)
 

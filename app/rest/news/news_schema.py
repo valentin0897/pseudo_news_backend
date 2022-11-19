@@ -6,6 +6,7 @@ class NewsBase(BaseModel):
     pub_time: str
     text: str
     short_description: str
+    is_main_news: bool
     is_outer_link: bool
     outer_link: str
     tag_id: int
