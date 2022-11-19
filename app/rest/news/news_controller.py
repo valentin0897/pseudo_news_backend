@@ -18,6 +18,16 @@ def get_news_by_id(news_id: int, db: Session = Depends(get_db)):
     result = models.get_news_by_id(db, news_id)
     return result
 
+@router.get("/main/")
+def get_main_news(db: Session = Depends(get_db)):
+    result = models.get_main_news(db)
+    return result
+
+@router.get("/regular/")
+def get_regular_news(db: Session = Depends(get_db)):
+    result = models.get_regular_news(db)
+    return result
+
 @router.patch("/{news_id}")
 def update_news(news_id: int, news: schemas.NewsBase, db: Session = Depends(get_db)):
     news_dict = news.dict(exclude_unset=True)

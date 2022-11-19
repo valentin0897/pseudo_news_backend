@@ -25,6 +25,12 @@ class News(Base):
 def get_all_news(db: Session):
     return db.execute(select(News)).scalars().all()
 
+def get_main_news(db: Session):
+    return db.execute(select(News).filter(News.is_main_news == True)).scalars().all()
+
+def get_regular_news(db: Session):
+    return db.execute(select(News).filter(News.is_main_news == False)).scalars().all()
+
 def get_news_by_id(db: Session, news_id: int):
     return db.execute(select(News).filter(News.id == news_id)).scalar()
 
