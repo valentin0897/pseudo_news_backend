@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, Boolean
 from sqlalchemy.future import select
 from sqlalchemy.orm import Session
 
@@ -10,6 +10,7 @@ class Settings(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     header_title = Column(String)
+    is_active = Column(Boolean)
 
 
 def get_all_settings(db: Session):

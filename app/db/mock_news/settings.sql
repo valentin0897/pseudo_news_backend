@@ -1,1 +1,1 @@
-INSERT INTO public.settings(header_title)VALUES ('News of the week');
+INSERT INTO public.settings(header_title, is_active)VALUES ('News of the week', true);
