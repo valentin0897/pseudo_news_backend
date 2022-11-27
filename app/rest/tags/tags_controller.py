@@ -2,9 +2,9 @@ from fastapi import APIRouter, Depends
 
 from sqlalchemy.orm import Session
 
-from rest.tags import tags_model as models
-from rest.tags import tags_schema as schemas
-from db.db import get_db
+from app.rest.tags import tags_model as models
+from app.rest.tags import tags_schema as schemas
+from app.db.db import get_db
 
 router = APIRouter(prefix="/tag", tags=["tag"])
 

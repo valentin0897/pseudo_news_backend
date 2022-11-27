@@ -1,9 +1,9 @@
-from sqlalchemy import Boolean, Column, ForeignKey, Integer, String
+from sqlalchemy import Column, Integer, String
 from sqlalchemy.future import select
-from sqlalchemy.orm import relationship, Session
+from sqlalchemy.orm import Session
 
-from db.db import Base
-import rest.settings.settings_schema as schemas
+from app.db.db import Base
+import app.rest.settings.settings_schema as schemas
 
 class Settings(Base):
     __tablename__ = "settings"

@@ -2,9 +2,9 @@ from fastapi import APIRouter, Depends
 
 from sqlalchemy.orm import Session
 
-from rest.settings import settings_model as models
-from rest.settings import settings_schema as schemas
-from db.db import get_db
+from app.rest.settings import settings_model as models
+from app.rest.settings import settings_schema as schemas
+from app.db.db import get_db
 
 router = APIRouter(prefix="/settings", tags=["settings"])
 

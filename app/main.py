@@ -1,13 +1,13 @@
 from fastapi import FastAPI
 
-from rest.news.news_model import News
-from rest.tags.tags_model import Tag
-from rest.settings.settings_model import Settings
-from db.db import Base, engine
+from app.rest.news.news_model import News
+from app.rest.tags.tags_model import Tag
+from app.rest.settings.settings_model import Settings
+from app.db.db import Base, engine
 
-from rest.tags.tags_controller import router as router_tags
-from rest.news.news_controller import router as router_news
-from rest.settings.settings_controller import router as router_settings
+from app.rest.tags.tags_controller import router as router_tags
+from app.rest.news.news_controller import router as router_news
+from app.rest.settings.settings_controller import router as router_settings
 
 Base.metadata.create_all(bind=engine)
 

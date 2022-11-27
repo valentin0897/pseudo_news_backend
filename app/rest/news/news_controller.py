@@ -2,9 +2,9 @@ from fastapi import APIRouter, Depends
 
 from sqlalchemy.orm import Session
 
-from rest.news import news_model as models
-from rest.news import news_schema as schemas
-from db.db import get_db
+from app.rest.news import news_model as models
+from app.rest.news import news_schema as schemas
+from app.db.db import get_db
 
 router = APIRouter(prefix="/news", tags=["news"])
 

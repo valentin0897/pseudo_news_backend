@@ -2,8 +2,8 @@ from sqlalchemy import Boolean, Column, ForeignKey, Integer, String
 from sqlalchemy.future import select
 from sqlalchemy.orm import relationship, Session
 
-from db.db import Base
-import rest.news.news_schema as schemas
+from app.db.db import Base
+import app.rest.news.news_schema as schemas
 
 class News(Base):
     __tablename__ = "news"

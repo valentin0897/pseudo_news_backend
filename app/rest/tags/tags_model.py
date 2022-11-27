@@ -2,8 +2,8 @@ from sqlalchemy import Column, Integer, String
 from sqlalchemy.future import select
 from sqlalchemy.orm import relationship, Session
 
-from db.db import Base
-from rest.tags import tags_schema as schemas
+from app.db.db import Base
+from app.rest.tags import tags_schema as schemas
 
 class Tag(Base):
     __tablename__ = "tags"
