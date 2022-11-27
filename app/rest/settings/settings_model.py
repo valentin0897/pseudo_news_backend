@@ -16,6 +16,9 @@ class Settings(Base):
 def get_all_settings(db: Session):
     return db.execute(select(Settings)).scalars().all()
 
+def get_active_settings(db: Session):
+    return db.execute(select(Settings).filter(Settings.is_active == True)).scalar()
+
 def get_settings_by_id(db: Session, settings_id: int):
     return db.execute(select(Settings).filter(Settings.id == settings_id)).scalar()
 

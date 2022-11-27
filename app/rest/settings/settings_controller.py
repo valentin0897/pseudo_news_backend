@@ -13,6 +13,11 @@ def get_all(db: Session = Depends(get_db)):
     result = models.get_all_settings(db)
     return result
 
+@router.get("/active")
+def get_active_settings(db: Session = Depends(get_db)):
+    result = models.get_active_settings(db)
+    return result
+
 @router.get("/{settings_id}")
 def get_settings_by_id(settings_id: int, db: Session = Depends(get_db)):
     result = models.get_settings_by_id(db, settings_id)
