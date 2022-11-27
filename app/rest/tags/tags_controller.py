@@ -8,9 +8,15 @@ from db.db import get_db
 
 router = APIRouter(prefix="/tag", tags=["tag"])
 
+
 @router.get("/")
 def get_all(db: Session = Depends(get_db)):
     result = models.get_all_tags(db)
+    return result
+
+@router.get("/name/")
+def get_tag_by_name(tag: str = "", db: Session = Depends(get_db)):
+    result = models.get_tag_id_by_name(db, tag)
     return result
 
 @router.get("/{tag_id}")

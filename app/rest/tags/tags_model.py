@@ -19,6 +19,9 @@ def get_all_tags(db: Session):
 def get_tag_by_id(db: Session, tag_id: int):
     return db.execute(select(Tag).filter(Tag.id == tag_id)).scalar()
 
+def get_tag_id_by_name(db: Session, tag_name: str):
+    return db.execute(select(Tag).filter(Tag.tag == tag_name)).scalar()
+
 def create_tag(db: Session, tag: schemas.TagCreate):
     db_tag = Tag(**tag.dict())
     db.add(db_tag)
