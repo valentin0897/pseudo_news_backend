@@ -1,0 +1,1 @@
+INSERT INTO public.settings(header_title)VALUES ('News of the week');
