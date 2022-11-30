@@ -29,7 +29,7 @@ def get_regular_news(db: Session = Depends(get_db)):
     return result
 
 @router.patch("/{news_id}")
-def update_news(news_id: int, news: schemas.NewsBase, db: Session = Depends(get_db)):
+def update_news(news_id: int, news: schemas.NewsUpdate, db: Session = Depends(get_db)):
     news_dict = news.dict(exclude_unset=True)
     updated_news = models.update_news(db, news_id, news_dict)
     return updated_news

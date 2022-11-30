@@ -8,6 +8,7 @@ from app.db.db import Base, engine
 from app.rest.tags.tags_controller import router as router_tags
 from app.rest.news.news_controller import router as router_news
 from app.rest.settings.settings_controller import router as router_settings
+from app.rest.image.image_controller import router as router_image
 
 Base.metadata.create_all(bind=engine)
 
@@ -22,6 +23,7 @@ origins = [
 app.include_router(router_news)
 app.include_router(router_tags)
 app.include_router(router_settings)
+app.include_router(router_image)
 
 app.add_middleware(
     CORSMiddleware,
