@@ -4,6 +4,7 @@ from sqlalchemy.orm import relationship, Session
 
 from app.db.db import Base
 from app.rest.tags import tags_schema as schemas
+from app.rest.tags_news.tags_news_model import tags_news
 
 class Tag(Base):
     __tablename__ = "tags"
@@ -11,7 +12,7 @@ class Tag(Base):
     id = Column(Integer, primary_key=True, index=True)
     tag = Column(String, unique=True)
 
-    news = relationship("News", back_populates="tag")
+    news = relationship("News", secondary=tags_news, back_populates="tags")
 
 def get_all_tags(db: Session):
     return db.execute(select(Tag)).scalars().all()

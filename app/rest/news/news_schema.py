@@ -7,9 +7,8 @@ class NewsBase(BaseModel):
     text: str
     short_description: str
     is_main_news: bool
-    is_outer_link: bool
-    outer_link: str
-    tag_id: int
+    is_external_link: bool
+    external_link: str
 
     class Config:
         orm_mode = True
@@ -21,12 +20,15 @@ class NewsUpdate(BaseModel):
     text: str | None
     short_description: str | None
     is_main_news: bool | None
-    is_outer_link: bool | None
-    outer_link: str | None
-    tag_id: int | None
+    is_external_link: bool | None
+    external_link: str | None
 
     class Config:
         orm_mode = True
 
 class NewsCreate(NewsBase):
     pass
+
+class NewsTagCreate(BaseModel):
+    tag: str
+    news_id: int

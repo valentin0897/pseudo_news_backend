@@ -1,7 +1,8 @@
 from fastapi import FastAPI
 
-from app.rest.news.news_model import News
 from app.rest.tags.tags_model import Tag
+from app.rest.news.news_model import News
+from app.rest.tags_news.tags_news_model import tags_news
 from app.rest.settings.settings_model import Settings
 from app.db.db import Base, engine
 

@@ -18,6 +18,16 @@ def get_news_by_id(news_id: int, db: Session = Depends(get_db)):
     result = models.get_news_by_id(db, news_id)
     return result
 
+@router.get("/{news_id}/tags/")
+def get_tags_by_news_id(news_id: int, db: Session = Depends(get_db)):
+    result = models.get_tags_by_news_id(db, news_id)
+    return result
+
+@router.get("/{tag_id}/news/")
+def get_news_by_tag_id(tag_id: int, db: Session = Depends(get_db)):
+    result = models.get_news_by_tag_id(db, tag_id)
+    return result
+
 @router.get("/main/")
 def get_main_news(db: Session = Depends(get_db)):
     result = models.get_main_news(db)
@@ -43,3 +53,13 @@ def create_news(news: schemas.NewsCreate, db: Session = Depends(get_db)):
 def delete_news(news_id: int, db: Session = Depends(get_db)):
     deleted_news = models.delete_news(db, news_id)
     return deleted_news
+
+@router.post("/add_link/")
+def add_tag(link: schemas.NewsTagCreate, db: Session = Depends(get_db)):
+    tags_news = models.add_link(db, link.news_id, link.tag)
+    return tags_news
+
+@router.post("/delete_link/")
+def delete_tag(link: schemas.NewsTagCreate, db: Session = Depends(get_db)):
+    tags_news = models.delete_link(db, link.news_id, link.tag)
+    return tags_news
